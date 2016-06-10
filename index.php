@@ -1,5 +1,5 @@
 <?php
-	$access = array(/* Tab contenant les pages disponibles du site */);
+	$access = array('home');
 	$page = 'home'; /*page courante : home par default*/ 
 	$error = '';
 	require('config.php');
@@ -23,7 +23,7 @@
 			$page = $_GET['page'];
 	}
 
-	$access_traitement = array(/*tab contenant les traitements.php*/);
+	$access_traitement = array('home');
 	
 	if (in_array($page, $access_traitement))
 		require('apps/treatments/traitement_'.$page.'.php');
