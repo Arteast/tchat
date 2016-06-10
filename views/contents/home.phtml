@@ -1,5 +1,5 @@
-<div>
-	<div class="ajax-home">
+<div class="container">
+	<div id="ajax-home">
 		<!--Affichage de l'ajax ici-->
 	</div>
 
@@ -13,7 +13,20 @@
 			<div>
 				<label for="message"></label>
 				<input id="message" type="text" name="message">
+				<button id="envoyer" data-taget="selecteur" data-element="selecteur">Envoyer</button>
 			</div>
 		</form>
 	</div>
 </div>
+
+<!--Ajax-->
+<script>
+	$(document).ready(function){
+		$("#envoyer").click(function(){
+			var target = $(this).data("target");
+			var element = $(this).data("element");
+
+			$("#ajax-home").load("index.php?page="+target+" "+element);
+		});
+	});
+</script>
