@@ -16,4 +16,6 @@
 		else
 			$error = "Missing parameter : message";
 	}
+	else
+		$error = "Missing parameter : user";
 ?>
