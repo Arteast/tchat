@@ -1,4 +1,4 @@
-<div class="container">
+<div>
 	<div id="ajax-home">
 		<!--Affichage de l'ajax ici-->
 		<?php require 'apps/contents/chat.php'; ?>
@@ -8,16 +8,16 @@
 	</div>
 	<div>
 		<form method="POST">
+
 			<div>
-				<label for="user">User</label>
-				<input id="user" type="text" name='user' value="<?=$user?>">
+				<input class="user" placeholder="User" id="user" type="text" name='user' value="<?=$user?>">
 			</div>
 
 			<div>
-				<label for="message">message</label>
-				<input id="message" type="text" name='message'>
-				<input type="submit" value="Envoyer">
+				<textarea class="message" id="message" type="text" name='message'></textarea>
+				<input class="submit-message" type="submit" value="Envoyer">
 			</div>
+
 		</form>
 	</div>
 </div>
