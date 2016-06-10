@@ -8,6 +8,15 @@
 			$this->link = $link;
 		}
 
+		public function findAll()
+		{
+			$list = [];
+			$request = "SELECT * FROM message";
+			$res = mysqli_query($this->link, $request);
+			while($message = mysqli_fetch_object($res, "Message"))
+				$list[] = $message;
+			return $list;
+		}
 		public function findById($id)
 		{
 			$id = intval($id);

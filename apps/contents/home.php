@@ -1,3 +1,3 @@
 <?php
-	require 'views/contents/dial.phtml'
+	require 'views/contents/home.phtml'
 ?>
