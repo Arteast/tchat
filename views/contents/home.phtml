@@ -4,9 +4,6 @@
 		<?php require 'apps/contents/chat.php'; ?>
 	</div>
 	<div>
-		<?=$error?>
-	</div>
-	<div>
 		<form method="POST">
 			<div>
 				<label for="user">User</label>
@@ -30,9 +27,16 @@
 		{
 			info.preventDefault();
 
+
 			var $form = $(this),
 				user = $form.find("input[name='user']").val(),
 				message = $form.find("input[name='message']").val();
+
+
+			if ($form.find("input[name='user']").val() == '')
+				alert('Missing parameter : user');
+			if ($form.find("input[name='message']").val() == '')
+				alert('Missing parameter : message');
 
 			$.post('index.php?page=home', {'user': user,'message': message }, function()
 			{
