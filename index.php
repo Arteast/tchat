@@ -27,5 +27,10 @@
 	
 	if (in_array($page, $access_traitement))
 		require('apps/treatments/traitement_'.$page.'.php');
-	require 'apps/skel.php';
+	if (isset($_GET['ajax']))
+	{
+		require('apps/contents/chat.php');
+	}
+	else
+		require 'apps/skel.php';
 ?>

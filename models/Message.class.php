@@ -12,15 +12,15 @@
 		}
 		public function getUser()
 		{
-			return $this->id;
+			return $this->user;
 		}
 		public function getMessage()
 		{
-			return $this->id;
+			return $this->message;
 		}
 		public function getDate()
 		{
-			return $this->id;
+			return $this->date;
 		}
 
 		public function setUser($string)

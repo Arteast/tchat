@@ -43,7 +43,7 @@
 				throw new Exception("Missing parameter : message");
 			$message = new Message;
 			$message->setUser($data['user']);
-			$message->setMessage($date['message']);
+			$message->setMessage($data['message']);
 
 			$user = mysqli_real_escape_string($this->link, $message->getUser());
 			$message = mysqli_real_escape_string($this->link, $message->getMessage());

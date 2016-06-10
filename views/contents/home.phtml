@@ -1,19 +1,22 @@
 <div class="container">
 	<div id="ajax-home">
 		<!--Affichage de l'ajax ici-->
+		<?php require 'apps/contents/chat.php'; ?>
 	</div>
-
+	<div>
+		<?=$error?>
+	</div>
 	<div>
 		<form method="POST">
 			<div>
-				<label for="user"></label>
-				<input id="user" type="text" name="user">
+				<label for="user">User</label>
+				<input id="user" type="text" name='user' value="<?=$user?>">
 			</div>
 
 			<div>
-				<label for="message"></label>
-				<input id="message" type="text" name="message">
-				<button id="envoyer" data-taget="selecteur" data-element="selecteur">Envoyer</button>
+				<label for="message">message</label>
+				<input id="message" type="text" name='message'>
+				<input type="submit" value="Envoyer">
 			</div>
 		</form>
 	</div>
@@ -21,12 +24,25 @@
 
 <!--Ajax-->
 <script>
-	$(document).ready(function){
-		$("#envoyer").click(function(){
-			var target = $(this).data("target");
-			var element = $(this).data("element");
+	$(document).ready(function()
+	{
+		$('form').submit(function(info)
+		{
+			info.preventDefault();
 
-			$("#ajax-home").load("index.php?page="+target+" "+element);
+			var $form = $(this),
+				user = $form.find("input[name='user']").val(),
+				message = $form.find("input[name='message']").val();
+
+			$.post('index.php?page=home', {'user': user,'message': message }, function()
+			{
+  				$form.find("input[name='message']").val('').focus();
+			});
+			return false;
 		});
+		setInterval(function()
+		{
+			$("#ajax-home").load("index.php?page=chat&ajax");
+		}, 1000);
 	});
 </script>

@@ -1,5 +1,5 @@
 <div>
-	<span><?=date("d/m/Y H:i:s", $messages[$i]->getDate()?>) | </span>
+	<span><?=($messages[$i]->getDate())?> | </span>
 	<span><?=htmlentities($messages[$i]->getUser())?> : </span>
 	<span><?=htmlentities($messages[$i]->getMessage())?></span>
 </div>
